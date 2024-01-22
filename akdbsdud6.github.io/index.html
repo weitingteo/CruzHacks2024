@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Parking Map</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+</head>
+<body>
+
+<header>
+    <h1>Peter Parking</h1>
+</header>
+
+<!--------------------------- Slug Images --------------------------->
+
+<img id="mySquareImageOne" src="slug_image_one.png" alt="Slug Image One">
+<img id="mySquareImageTwo" src="sluge_image_two.png" alt="Slug Image Two">
+<img id="mySquareImageThree" src="slug_image_three.png" alt="Slug Image Three">
+<img id="mySquareImageFour" src="slug_image_four.png" alt="Slug Image Four">
+
+
+
+<!--------------------------- Merril Button Background --------------------------->
+<div class="bg">
+    <i class="fa-solid fa-location-dot" id="merrilButton"></i>
+
+    <div id="merrilDropDownMenu" class="merrilDropDown-Content">
+            <p>Merril Lot 119  ‎ ‎‎ / ‎ ‎  <span id="merrilAvailableSpots">20</span> </p>
+        <button id="merrilReportButton">Report</button>
+        <select id="merrilSpotSelector" style="display: none;">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10+">10+</option>
+        </select>
+    </div>
+</div>
+
+<!--------------------------- East Button Background --------------------------->
+<div class="bg">
+    <i class="fa-solid fa-location-dot" id="eastButton"></i>
+
+    <div id="eastDropDownMenu" class="eastDropDown-Content">
+            <p>East Remote  ‎ ‎‎ / ‎ ‎  <span id="eastAvailableSpots">20</span> </p>
+        <button id="eastReportButton">Report</button>
+        <select id="eastSpotSelector" style="display: none;">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10+">10+</option>
+        </select>
+    </div>
+</div>
+
+<!--------------------------- Rcarson Button Background --------------------------->
+<div class="bg">
+    <i class="fa-solid fa-location-dot" id="rcarsonButton"></i>
+
+    <div id="rcarsonDropDownMenu" class="rcarsonDropDown-Content">
+            <p>Rcarson Lot 162  ‎ ‎‎ / ‎ ‎  <span id="rcarsonAvailableSpots">20</span> </p>
+        <button id="rcarsonReportButton">Report</button>
+        <select id="rcarsonSpotSelector" style="display: none;">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10+">10+</option>
+        </select>
+    </div>
+</div>
+
+<!--------------------------- Kresge Button Background --------------------------->
+<div class="bg">
+    <i class="fa-solid fa-location-dot" id="kresgeButton"></i>
+
+    <div id="kresgeDropDownMenu" class="kresgeDropDown-Content">
+            <p>Kresge Lot 157  ‎ ‎‎ / ‎ ‎  <span id="kresgeAvailableSpots">20</span> </p>
+        <button id="kresgeReportButton">Report</button>
+        <select id="kresgeSpotSelector" style="display: none;">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10+">10+</option>
+        </select>
+    </div>
+</div>
+
+<!--------------------------- Script --------------------------->
+
+<script>
+
+/* --------------------------- Merril Button Script --------------------------- */
+
+// JavaScript for dropdown toggle
+document.getElementById("merrilButton").onclick = function() {
+    var dropdown = document.getElementById("merrilDropDownMenu");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+};
+
+document.getElementById('merrilReportButton').addEventListener('click', function() {
+    var selector = document.getElementById('merrilSpotSelector');
+    selector.style.display = selector.style.display === 'none' ? 'block' : 'none';
+});
+
+// Function to update display
+function merrilUpdateDisplay(spots) {
+    var icon = document.getElementById('merrilButton');
+    var spotsText = spots === '10+' ? '10+ Spots Available' : spots + ' Spots Available';
+    document.getElementById('merrilAvailableSpots').innerText = spotsText; // Use spotsText here
+
+    if (spots == 0) {
+        icon.style.color = 'red'; // No spots available
+    } else if (spots >= 1 && spots <= 2) {
+        icon.style.color = '#DAA520'; // Darker yellow for few spots available
+    } else {
+        icon.style.color = 'green'; // Several spots available
+    }
+}
+
+
+// Function to fetch parking data
+function merrilFetchParkingData(parkingLot) {
+    fetch(`http://127.0.0.1:5000/get_parking_data/${parkingLot}`)
+        .then(response => response.json())
+        .then(data => {
+            merrilUpdateDisplay(data.spots_available);
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Function to report new spot count
+function merrilReportParking(parkingLot, spots) {
+    fetch('http://127.0.0.1:5000/report', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ parking_lot: parkingLot, spots: spots }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            merrilFetchParkingData(parkingLot); // Refresh parking data
+        } else {
+            console.error('Report Failed');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Event listener for spot selection
+document.getElementById('merrilSpotSelector').addEventListener('change', function() {
+    var parkingLot = 'Merrill';  // Replace with the actual parking lot name
+    var spots = this.value === '10+' ? '10+' : parseInt(this.value);
+    merrilUpdateDisplay(spots); // Call the update display function with the correct spots value
+    merrilReportParking(parkingLot, spots); // Assuming you also handle '10+' in your reporting logic
+});
+
+
+// Fetch data on page load
+window.onload = function() {
+    merrilFetchParkingData('Merrill'); // Replace 'Merrill' with the actual parking lot ID
+    eastFetchParkingData('East'); // Replace 'Merrill' with the actual parking lot ID
+    rcarsonFetchParkingData('Rcarson');
+    kresgeFetchParkingData('Kresge');
+
+};
+
+/* --------------------------- East Button Script --------------------------- */
+
+// JavaScript for dropdown toggle
+document.getElementById("eastButton").onclick = function() {
+    var dropdown = document.getElementById("eastDropDownMenu");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+};
+
+document.getElementById('eastReportButton').addEventListener('click', function() {
+    var selector = document.getElementById('eastSpotSelector');
+    selector.style.display = selector.style.display === 'none' ? 'block' : 'none';
+});
+
+// Function to update display
+function eastUpdateDisplay(spots) {
+    var icon = document.getElementById('eastButton');
+    var spotsText = spots === '10+' ? '10+ Spots Available' : spots + ' Spots Available';
+    document.getElementById('eastAvailableSpots').innerText = spotsText; // Use spotsText here
+
+    if (spots == 0) {
+        icon.style.color = 'red'; // No spots available
+    } else if (spots >= 1 && spots <= 2) {
+        icon.style.color = '#DAA520'; // Darker yellow for few spots available
+    } else {
+        icon.style.color = 'green'; // Several spots available
+    }
+}
+
+// Function to fetch parking data
+function eastFetchParkingData(parkingLot) {
+    fetch(`http://127.0.0.1:5000/get_parking_data/${parkingLot}`)
+        .then(response => response.json())
+        .then(data => {eastUpdateDisplay
+            eastUpdateDisplay(data.spots_available);
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Function to report new spot count
+function eastReportParking(parkingLot, spots) {
+    fetch('http://127.0.0.1:5000/report', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ parking_lot: parkingLot, spots: spots }),
+    })
+    .then(response => response.json())
+    .then(data => {togglee
+        if (data.success) {
+            eastFetchParkingData(parkingLot); // Refresh parking data
+        } else {
+            console.error('Report Failed');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Event listener for spot selection
+document.getElementById('eastSpotSelector').addEventListener('change', function() {
+    var parkingLot = 'East';  // Replace with the actual parking lot name
+    var spots = this.value === '10+' ? '10+' : parseInt(this.value);
+    eastUpdateDisplay(spots); // Call the update display function with the correct spots value
+    eastReportParking(parkingLot, spots); // Assuming you also handle '10+' in your reporting logic
+});
+
+/* --------------------------- Rcarson Button Script --------------------------- */
+// JavaScript for dropdown toggle
+document.getElementById("rcarsonButton").onclick = function() {
+    var dropdown = document.getElementById("rcarsonDropDownMenu");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+};
+
+document.getElementById('rcarsonReportButton').addEventListener('click', function() {
+    var selector = document.getElementById('rcarsonSpotSelector');
+    selector.style.display = selector.style.display === 'none' ? 'block' : 'none';
+});
+
+// Function to update display
+function rcarsonUpdateDisplay(spots) {
+    var icon = document.getElementById('rcarsonButton');
+    var spotsText = spots === '10+' ? '10+ Spots Available' : spots + ' Spots Available';
+    document.getElementById('rcarsonAvailableSpots').innerText = spotsText; // Use spotsText here
+
+    if (spots == 0) {
+        icon.style.color = 'red'; // No spots available
+    } else if (spots >= 1 && spots <= 2) {
+        icon.style.color = '#DAA520'; // Darker yellow for few spots available
+    } else {
+        icon.style.color = 'green'; // Several spots available
+    }
+}
+
+// Function to fetch parking data
+function rcarsonFetchParkingData(parkingLot) {
+    fetch(`http://127.0.0.1:5000/get_parking_data/${parkingLot}`)
+        .then(response => response.json())
+        .then(data => {
+            rcarsonUpdateDisplay(data.spots_available);
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+// Function to report new spot count
+function rcarsonReportParking(parkingLot, spots) {
+    fetch('http://127.0.0.1:5000/report', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ parking_lot: parkingLot, spots: spots }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            rcarsonFetchParkingData(parkingLot); // Refresh parking data
+        } else {
+            console.error('Report Failed');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Event listener for spot selection
+document.getElementById('rcarsonSpotSelector').addEventListener('change', function() {
+    var parkingLot = 'Rcarson';  // Replace with the actual parking lot name
+    var spots = this.value === '10+' ? '10+' : parseInt(this.value);
+    rcarsonUpdateDisplay(spots); // Call the update display function with the correct spots value
+    rcarsonReportParking(parkingLot, spots); // Assuming you also handle '10+' in your reporting logic
+});
+
+/* --------------------------- Kresge Button Script --------------------------- */
+// JavaScript for dropdown toggle
+document.getElementById("kresgeButton").onclick = function() {
+    var dropdown = document.getElementById("kresgeDropDownMenu");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+};
+
+document.getElementById('kresgeReportButton').addEventListener('click', function() {
+    var selector = document.getElementById('kresgeSpotSelector');
+    selector.style.display = selector.style.display === 'none' ? 'block' : 'none';
+});
+
+// Function to update display
+function kresgeUpdateDisplay(spots) {
+    var icon = document.getElementById('kresgeButton');
+    var spotsText = spots === '10+' ? '10+ Spots Available' : spots + ' Spots Available';
+    document.getElementById('kresgeAvailableSpots').innerText = spotsText; // Use spotsText here
+
+    if (spots == 0) {
+        icon.style.color = 'red'; // No spots available
+    } else if (spots >= 1 && spots <= 2) {
+        icon.style.color = '#DAA520'; // Darker yellow for few spots available
+    } else {
+        icon.style.color = 'green'; // Several spots available
+    }
+}
+
+// Function to fetch parking data
+function kresgeFetchParkingData(parkingLot) {
+    fetch(`http://127.0.0.1:5000/get_parking_data/${parkingLot}`)
+        .then(response => response.json())
+        .then(data => {
+            kresgeUpdateDisplay(data.spots_available);
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+
+// Function to report new spot count
+function kresgeReportParking(parkingLot, spots) {
+    fetch('http://127.0.0.1:5000/report', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ parking_lot: parkingLot, spots: spots }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            kresgeFetchParkingData(parkingLot); // Refresh parking data
+        } else {
+            console.error('Report Failed');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Event listener for spot selection
+document.getElementById('kresgeSpotSelector').addEventListener('change', function() {
+    var parkingLot = 'Kresge';  // Replace with the actual parking lot name
+    var spots = this.value === '10+' ? '10+' : parseInt(this.value);
+    kresgeUpdateDisplay(spots); // Call the update display function with the correct spots value
+    kresgeReportParking(parkingLot, spots); // Assuming you also handle '10+' in your reporting logic
+});
+
+</script>
+
+</body>
+
+</html>

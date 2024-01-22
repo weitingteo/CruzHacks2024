@@ -1,0 +1,366 @@
+/*----------------Background Image---------------*/
+
+/* Set up the body with no margin and hidden overflow */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Hide scrollbars */
+  height: 100%; /* Full height */
+}
+
+/* The background image */
+.bg {
+  /* The image used */
+  background-image: url('parking_map.png');
+  
+  /* Full height */
+  height: 100%;
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*----------------Header---------------*/
+
+header {
+    background-color: #003C6C; /* Deep blue */
+    color: #FDC700; /* Vivid yellow */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures the header stays on top */
+    font-family: 'Roboto', sans-serif; /* Optional if you've already applied it to the body */
+
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Adjust the .bg class to account for the header */
+.bg {
+    margin-top: 50px; /* Adjust this value based on your header's height */
+    /* Other styles... */
+}
+
+/*----------------Header---------------*/
+
+/*----------------Button Styles---------------*/
+#eastButton {
+    position: absolute; 
+    top: 80%; 
+    left: 69%; 
+    transform: translate(-50%, -50%);
+    font-size: 40px; 
+    color: #003C6C; 
+    cursor: pointer;
+}
+
+#merrilButton {
+    position: absolute; 
+    top: 29%; 
+    left: 73%; 
+    transform: translate(-50%, -50%);
+    font-size: 40px; 
+    color: #003C6C; 
+    cursor: pointer;
+}
+
+#rcarsonButton {
+    position: absolute; 
+    top: 80%; 
+    left: 40%; 
+    transform: translate(-50%, -50%);
+    font-size: 40px; 
+    color: #003C6C; 
+    cursor: pointer;
+}
+
+#kresgeButton {
+    position: absolute; 
+    top: 35%; 
+    left: 40%; 
+    transform: translate(-50%, -50%);
+    font-size: 40px; 
+    color: #003C6C; 
+    cursor: pointer;
+}
+
+
+/*----------------Dropdown Menu Merril---------------*/
+
+/* Center align text within the box */
+#merrilAvailableSpots {
+    text-align: center;
+}
+
+/* Dropdown Menu Styles */
+.merrilDropDown-Content {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 20;
+    font-family: 'Roboto', sans-serif;  
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Report Button Style */
+#merrilReportButton {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px; /* Spacing from the text */
+    background-color: #003C6C; /* Example button color */
+    color: #FDC700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;  
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px; /* Rounded corners */
+
+}
+
+.merrilDropDown-Content {
+    /* Existing styles... */
+    top: 240px; /* Adjust this value */
+    left: 978px; /* Adjust this value */
+}
+
+/* Dropdown Styles */
+#merrilSpotSelector {
+    /* Example styles */
+    font-size: 16px;
+    color: #333;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Display inline with other elements */
+    vertical-align: top; /* Align to the top */
+    margin-right: 10px; /* Add some space to the right of the dropdown */
+    margin-left: -0.8px; /* Push the dropdown to the left */
+}
+
+/*----------------Dropdown Menu East---------------*/
+
+/* Center align text within the box */
+#eastAvailableSpots {
+    text-align: center;
+}
+
+/* Dropdown Menu Styles */
+.eastDropDown-Content {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 20;
+    font-family: 'Roboto', sans-serif;  
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Report Button Style */
+#eastReportButton {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px; /* Spacing from the text */
+    background-color: #003C6C; /* Example button color */
+    color: #FDC700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;  
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px; /* Rounded corners */
+
+}
+
+.eastDropDown-Content {
+    /* Existing styles... */
+    top: 450px; /* Adjust this value */
+    left: 1085px; /* Adjust this value */
+}
+
+/* Dropdown Styles */
+#eastSpotSelector {
+    /* Example styles */
+    font-size: 16px;
+    color: #333;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Display inline with other elements */
+    vertical-align: top; /* Align to the top */
+    margin-right: 10px; /* Add some space to the right of the dropdown */
+    margin-left: -0.8px; /* Push the dropdown to the left */
+}
+
+/*----------------Dropdown Menu Rcarson---------------*/
+
+/* Center align text within the box */
+#rcarsonAvailableSpots {
+    text-align: center;
+}
+
+/* Dropdown Menu Styles */
+.rcarsonDropDown-Content {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 20;
+    font-family: 'Roboto', sans-serif;  
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Report Button Style */
+#rcarsonReportButton {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px; /* Spacing from the text */
+    background-color: #003C6C; /* Example button color */
+    color: #FDC700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;  
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px; /* Rounded corners */
+
+}
+
+.rcarsonDropDown-Content {
+    /* Existing styles... */
+    top: 500px; /* Adjust this value */
+    left: 280px; /* Adjust this value */
+}
+
+/* Dropdown Styles */
+#rcarsonSpotSelector {
+    /* Example styles */
+    font-size: 16px;
+    color: #333;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Display inline with other elements */
+    vertical-align: top; /* Align to the top */
+    margin-right: 10px; /* Add some space to the right of the dropdown */
+    margin-left: -0.8px; /* Push the dropdown to the left */
+}
+
+/*----------------Dropdown Menu Kresge---------------*/
+
+/* Center align text within the box */
+#kresgeAvailableSpots {
+    text-align: center;
+}
+
+/* Dropdown Menu Styles */
+.kresgeDropDown-Content {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 20;
+    font-family: 'Roboto', sans-serif;  
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Report Button Style */
+#kresgeReportButton {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px; /* Spacing from the text */
+    background-color: #003C6C; /* Example button color */
+    color: #FDC700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;  
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px; /* Rounded corners */
+
+}
+
+.kresgeDropDown-Content {
+    /* Existing styles... */
+    top: 115px; /* Adjust this value */
+    left: 296px; /* Adjust this value */
+}
+
+/* Dropdown Styles */
+#kresgeSpotSelector {
+    /* Example styles */
+    font-size: 16px;
+    color: #333;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Display inline with other elements */
+    vertical-align: top; /* Align to the top */
+    margin-right: 10px; /* Add some space to the right of the dropdown */
+    margin-left: -0.8px; /* Push the dropdown to the left */
+}
+
+/*----------------Slug Images---------------*/
+
+#mySquareImageOne {
+    width: 100px; /* Adjust the size */
+    height: 100px; /* Keep width and height the same for a square */
+    position: absolute; /* Use absolute or relative positioning */
+    top: 450px; /* Adjust the position */
+    left: 900px; /* Adjust the position */
+    transform: rotate(260deg);
+
+}
+
+#mySquareImageTwo {
+    width: 150px; /* Adjust the size */
+    height: 150px; /* Keep width and height the same for a square */
+    position: absolute; /* Use absolute or relative positioning */
+    top: 550px; /* Adjust the position */
+    left: 1350px; /* Adjust the position */
+}
+
+#mySquareImageThree {
+    width: 150px; /* Adjust the size */
+    height: 150px; /* Keep width and height the same for a square */
+    position: absolute; /* Use absolute or relative positioning */
+    top: 280px; /* Adjust the position */
+    left: 340px; /* Adjust the position */
+}
+
+#mySquareImageFour {
+    width: 150px; /* Adjust the size */
+    height: 150px; /* Keep width and height the same for a square */
+    position: absolute; /* Use absolute or relative positioning */
+    top: 200px; /* Adjust the position */
+    left: 55px; /* Adjust the position */
+}
